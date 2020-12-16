@@ -7,7 +7,6 @@
 package view;
 import main.Controller;
 
-
 import javax.swing.*;
 
 public class MainFrame {

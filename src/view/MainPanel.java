@@ -18,7 +18,6 @@ public class MainPanel extends JPanel {
     PanelCenter pnlCenter;
     PanelNorth pnlNorth;
 
-
     private Controller controller;
 
     public MainPanel(Controller controller, int size) {
@@ -36,11 +35,9 @@ public class MainPanel extends JPanel {
         Border margin = BorderFactory.createEmptyBorder(10, 10, 10, 10);
         setBorder(new CompoundBorder(border, margin));
 
-
         // on the northern part of the MainPanel
         pnlNorth = new PanelNorth (controller);
         add(pnlNorth, BorderLayout.NORTH);
-
 
         //list at center of gui
         pnlCenter = new PanelCenter (controller, size);

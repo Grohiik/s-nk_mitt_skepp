@@ -17,7 +17,7 @@ public class Controller {
 
         gameboard = new Gameboard(size);
 
-        Ship carrier = new carrier();
+        Ship carrier = new Carrier();
         System.out.println(carrier.getLength());
         mainFrame = new MainFrame(this, size);
     }

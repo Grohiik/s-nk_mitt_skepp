@@ -6,8 +6,8 @@
 
 package model;
 
-public class carrier extends Ship{
-    public carrier(){
-        super(ShipType.carrier, 5);
+public class Battleship extends Ship{
+    public Battleship() {
+        super(ShipType.battleship, 4);
     }
 }
