@@ -6,9 +6,9 @@
 
 package model;
 
-public class gameboard {
+public class Gameboard {
     Ship[][] board;
-    public gameboard(int size){
+    public Gameboard(int size){
         board = new Ship[size][size];
     }
 }
