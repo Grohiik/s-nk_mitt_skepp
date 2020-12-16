@@ -6,6 +6,7 @@
 
 package model;
 
+//Creates the board the game is played on,will create an array the ships are placed on, the remaining spots in the array are seen as null (empty spaces)
 public class Gameboard {
     Ship[][] board;
     public Gameboard(int size){

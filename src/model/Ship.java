@@ -6,6 +6,7 @@
 
 package model;
 
+// This abstract class clarifies what the different shiptypes should or could contain
 public abstract class Ship {
     private final ShipType shipType;
     private boolean shot = false;
