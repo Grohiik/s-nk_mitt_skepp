@@ -6,7 +6,6 @@
 
 package model;
 
-
 //TODO 2 gameboards at 10*10 constructor to choose which one
 //TODO constructor to choose which of the 2 boards to use
 
@@ -15,13 +14,11 @@ public class Gameboard
 {
     Ship[][] board;
 
-    public Gameboard(int size)
-    {
-        board = new Ship[size][size];
+    public Gameboard(int size){
+      board = new Ship[size][size];
         //if choice = v1 do v1 else do v2
         gameboardV1();
        // gameboardV2();
-
     }
 
     private void gameboardV1()
