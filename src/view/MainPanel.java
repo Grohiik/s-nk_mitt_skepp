@@ -1,3 +1,9 @@
+/*
+  Author: Marcus Linné, Linnéa Mörk
+  Id: ai8851, al2804
+  Study program: DT
+*/
+
 package view;
 
 import main.Controller;
@@ -11,7 +17,6 @@ public class MainPanel extends JPanel {
     private int size;
     PanelCenter pnlCenter;
     PanelNorth pnlNorth;
-
 
     private Controller controller;
 
@@ -30,11 +35,9 @@ public class MainPanel extends JPanel {
         Border margin = BorderFactory.createEmptyBorder(10, 10, 10, 10);
         setBorder(new CompoundBorder(border, margin));
 
-
         // on the northern part of the MainPanel
         pnlNorth = new PanelNorth (controller);
         add(pnlNorth, BorderLayout.NORTH);
-
 
         //list at center of gui
         pnlCenter = new PanelCenter (controller, size);

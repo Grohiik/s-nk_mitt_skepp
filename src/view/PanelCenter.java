@@ -1,3 +1,9 @@
+/*
+  Author: Marcus Linné, Linnéa Mörk
+  Id: ai8851, al2804
+  Study program: DT
+*/
+
 package view;
 
 import main.Controller;
@@ -18,6 +24,7 @@ public class PanelCenter  extends JPanel implements ActionListener {
         buttons = new JButton[size][size];
         createComponents();
     }
+
     private void createComponents(){
         GridLayout layout = new GridLayout(size, size);
         setLayout(layout);
