@@ -15,9 +15,9 @@ public class Controller {
     Scoreboard scoreboard;
     int shotCounter = 0;
     int size = 10;
-
+    int choice;
     public Controller(){
-        gameboard = new GameBoard(size);
+        gameboard = new GameBoard(size, choice);
         scoreboard = new Scoreboard(100);
         mainFrame = new MainFrame(this, size);
     }

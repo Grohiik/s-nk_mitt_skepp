@@ -13,11 +13,18 @@ package model;
 public class GameBoard {
     Ship[][] board;
 
-    public GameBoard(int size) {
+    public GameBoard(int size, int choice) {
         board = new Ship[size][size];
-        //if choice = v1 do v1 else do v2
-        gameBoardV1();
-       // gameBoardV2();
+
+        if (choice == 1)
+        {
+            gameBoardV1();
+        }
+        else if (choice == 2)
+        {
+            gameBoardV2();
+        }
+
     }
 
     private void gameBoardV1() {
