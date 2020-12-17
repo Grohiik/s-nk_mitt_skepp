@@ -1,6 +1,11 @@
+/*
+  Author: Marcus Linné, Linnéa Mörk
+  Id: ai8851, al2804
+  Study program: DT
+*/
+
 package view;
 import main.Controller;
-
 
 import javax.swing.*;
 
