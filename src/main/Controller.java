@@ -12,7 +12,7 @@ import view.MainFrame;
 public class Controller {
     MainFrame mainFrame;
     Gameboard gameboard;
-    int size = 4;
+    int size = 10;
 
     public Controller(){
         gameboard = new Gameboard(size);
