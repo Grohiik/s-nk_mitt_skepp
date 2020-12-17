@@ -15,8 +15,8 @@ import java.awt.*;
 
 public class MainPanel extends JPanel {
     private int size;
-    PanelCenter pnlCenter;
-    PanelNorth pnlNorth;
+    private PanelCenter pnlCenter;
+    private PanelNorth pnlNorth;
 
     private Controller controller;
 
@@ -42,5 +42,16 @@ public class MainPanel extends JPanel {
         //list at center of gui
         pnlCenter = new PanelCenter (controller, size);
         add(pnlCenter, BorderLayout.CENTER);
+    }
+
+    public void hit(int collum, int row) {
+        pnlCenter.hit(collum, row);
+        pnlNorth.increaseShotCounter();
+    }
+
+    public void miss(int collum, int row) {
+        pnlCenter.miss(collum, row);
+        pnlNorth.increaseShotCounter();
+
     }
 }

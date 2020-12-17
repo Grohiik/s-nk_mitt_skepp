@@ -30,7 +30,7 @@ public class PanelCenter  extends JPanel implements ActionListener {
         setLayout(layout);
         for(int i = 0; i<size; i++){
             for(int j = 0; j<size; j++){
-                buttons[i][j] = new JButton(String.valueOf(i)+" "+String.valueOf(j));
+                buttons[i][j] = new JButton(" ");
                 add(buttons[i][j]);
                 buttons[i][j].addActionListener(this);
             }
@@ -48,5 +48,18 @@ public class PanelCenter  extends JPanel implements ActionListener {
                 }
             }
         }
+    }
+
+
+    public void hit(int collum, int row) {
+        JButton button = buttons[collum][row];
+        button.setText("!");
+        button.setEnabled(false);
+    }
+
+    public void miss(int collum, int row) {
+        JButton button = buttons[collum][row];
+        button.setText("X");
+        button.setEnabled(false);
     }
 }
