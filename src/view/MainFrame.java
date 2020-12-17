@@ -28,4 +28,16 @@ public class MainFrame {
     public void errMessage(String message) {
         JOptionPane.showMessageDialog(null, message);
     }
+
+    public void hit(int collum, int row) {
+        panel.hit(collum, row);
+    }
+
+    public void miss(int collum, int row) {
+        panel.miss(collum, row);
+    }
+
+    public String inputWindow(String msg){
+        return (String)JOptionPane.showInputDialog(frame, msg);
+    }
 }

@@ -2,7 +2,6 @@ package model;
 
 public abstract class Ship {
     private final ShipType shipType;
-    private boolean shot = false;
     private final int length;
     private int hits = 0;
 
@@ -27,10 +26,15 @@ public abstract class Ship {
         hits++;
     }
 
-    public boolean isShot() {
-        return shot;
+    public boolean isDead(){
+        if(length-hits<= 0){
+            return true;
+        }
+        return false;
     }
-    public void setShot(boolean shot) {
-        this.shot = shot;
+
+    @Override
+    public String toString() {
+        return shipType.name();
     }
 }
