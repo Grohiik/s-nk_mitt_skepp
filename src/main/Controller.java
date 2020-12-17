@@ -11,13 +11,13 @@ import view.MainFrame;
 
 public class Controller {
     MainFrame mainFrame;
-    Gameboard gameboard;
+    GameBoard gameboard;
     Scoreboard scoreboard;
     int shotCounter = 0;
     int size = 10;
 
     public Controller(){
-        gameboard = new Gameboard(size);
+        gameboard = new GameBoard(size);
         scoreboard = new Scoreboard(100);
         mainFrame = new MainFrame(this, size);
     }

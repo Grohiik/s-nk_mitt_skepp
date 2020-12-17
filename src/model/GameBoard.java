@@ -6,23 +6,21 @@
 
 package model;
 
-//TODO 2 gameboards at 10*10 constructor to choose which one
+
 //TODO constructor to choose which of the 2 boards to use
 
 //Creates the board the game is played on,will create an array the ships are placed on, the remaining spots in the array are seen as null (empty spaces)
-public class Gameboard
-{
+public class GameBoard {
     Ship[][] board;
 
-    public Gameboard(int size){
-      board = new Ship[size][size];
+    public GameBoard(int size) {
+        board = new Ship[size][size];
         //if choice = v1 do v1 else do v2
-        gameboardV1();
-       // gameboardV2();
+        gameBoardV1();
+       // gameBoardV2();
     }
 
-    private void gameboardV1()
-    {
+    private void gameBoardV1() {
         Submarine placedSubmarine = new Submarine();
         Carrier placedCarrier = new Carrier();
         Battleship placedBattleship = new Battleship();
@@ -54,8 +52,8 @@ public class Gameboard
         board[6][5] = placedCarrier;
         board[6][6] = placedCarrier;
     }
-    private void gameboardV2()
-    {
+  
+    private void gameBoardV2() {
         Submarine placedSubmarine = new Submarine();
         Carrier placedCarrier = new Carrier();
         Battleship placedBattleship = new Battleship();
@@ -86,5 +84,38 @@ public class Gameboard
         board[2][3] = placedCarrier;
         board[2][4] = placedCarrier;
         board[2][5] = placedCarrier;
+    }
+
+    public TypesOfShots shot(int collum, int row) {
+        if(collum > board.length || row > board[0].length || collum<0||row<0){
+            return TypesOfShots.Error;
+        }
+        Ship ship = board[collum][row];
+        if(ship != null){
+            ship.incHits();
+            if(ship.isDead()){
+                return TypesOfShots.Dead;
+            }
+            return TypesOfShots.Hit;
+        }
+        return TypesOfShots.Miss;
+    }
+
+    public boolean hasWon() {
+        for (Ship[] ships: board){
+            for (Ship ship: ships){
+                if(ship == null){
+                    continue;
+                }
+                if(!ship.isDead()){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public Ship[][] getBoard() {
+        return board;
     }
 }
