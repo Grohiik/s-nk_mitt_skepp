@@ -30,16 +30,16 @@ public class Controller {
         }else if(result == TypesOfShots.Dead){
             mainFrame.hit(collum, row);
             Ship ship = gameboard.getBoard()[collum][row];
-            mainFrame.errMessage("A "+ship.toString()+" is dead");
+            mainFrame.errMessage("A "+ship.toString()+" has been destroyed");
             if(gameboard.hasWon()){
-                String name = mainFrame.inputWindow("you won: enter name");
+                String name = mainFrame.inputWindow("You won, enter your name name");
                 scoreboard.addPlayer(new Player(name, shotCounter));
                 showScoreboard();
             }
         }else if(result == TypesOfShots.Miss){
             mainFrame.miss(collum, row);
         }else if(result == TypesOfShots.Error){
-            mainFrame.errMessage("what did you do?\nSend in a bug report with what you did pls.");
+            mainFrame.errMessage("What did you do?\nSend in a bug report with what you did pls.");
             shotCounter--;
         }
     }
@@ -47,7 +47,7 @@ public class Controller {
     public void newGameBoard(){
         shotCounter = 0;
         mainFrame.reload();
-        String choiceString = mainFrame.inputWindow("what gameBoard do you want?");
+        String choiceString = mainFrame.inputWindow("Which board would you like to use?");
         int choice;
         if (choiceString == null){
             System.exit(0);
@@ -58,7 +58,7 @@ public class Controller {
                 break;
             }
             catch (NumberFormatException e){
-                choiceString = mainFrame.inputWindow("what gameBoard do you want?");
+                choiceString = mainFrame.inputWindow("Which board would you like to use?");
             }
         }
         gameboard = new GameBoard(size, choice);

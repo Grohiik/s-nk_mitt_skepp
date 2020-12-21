@@ -33,7 +33,7 @@ public class PanelNorth  extends JPanel implements ActionListener {
         add(btnScoreBoard);
         btnScoreBoard.addActionListener(this);
 
-        counter = new JLabel("shots taken:");
+        counter = new JLabel("Shots fired:");
         add(counter);
 
         counterLable = new JLabel("0");

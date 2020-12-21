@@ -6,7 +6,6 @@
 
 package model;
 
-
 //TODO constructor to choose which of the 2 boards to use
 
 //Creates the board the game is played on,will create an array the ships are placed on, the remaining spots in the array are seen as null (empty spaces)

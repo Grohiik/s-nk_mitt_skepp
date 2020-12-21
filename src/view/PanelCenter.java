@@ -50,7 +50,6 @@ public class PanelCenter  extends JPanel implements ActionListener {
         }
     }
 
-
     public void hit(int collum, int row) {
         JButton button = buttons[collum][row];
         button.setText("!");

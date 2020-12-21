@@ -6,7 +6,7 @@ public class Scoreboard {
 
     public Scoreboard(int size){
         players = new Player[size];
-        addPlayer(new Player("linnea", 50));
+        addPlayer(new Player("Linnea", 50));
         addPlayer(new Player("Marcus", 40));
 
     }
