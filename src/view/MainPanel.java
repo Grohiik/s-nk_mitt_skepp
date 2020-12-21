@@ -54,4 +54,9 @@ public class MainPanel extends JPanel {
         pnlNorth.increaseShotCounter();
 
     }
+
+    public void reload() {
+        pnlNorth.reset();
+        pnlCenter.reset();
+    }
 }

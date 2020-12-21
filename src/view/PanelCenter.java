@@ -62,4 +62,13 @@ public class PanelCenter  extends JPanel implements ActionListener {
         button.setText("X");
         button.setEnabled(false);
     }
+
+    public void reset() {
+        for(JButton[] buttons1d: buttons){
+            for(JButton button: buttons1d){
+                button.setEnabled(true);
+                button.setText(" ");
+            }
+        }
+    }
 }

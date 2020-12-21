@@ -13,13 +13,13 @@ public class Controller {
     MainFrame mainFrame;
     GameBoard gameboard;
     Scoreboard scoreboard;
-    int shotCounter = 0;
+    int shotCounter;
     int size = 10;
-    int choice;
+
     public Controller(){
-        gameboard = new GameBoard(size, choice);
-        scoreboard = new Scoreboard(100);
         mainFrame = new MainFrame(this, size);
+        scoreboard = new Scoreboard(100);
+        newGameBoard();
     }
 
     public void shoot(int collum, int row){
@@ -33,7 +33,8 @@ public class Controller {
             mainFrame.errMessage("A "+ship.toString()+" is dead");
             if(gameboard.hasWon()){
                 String name = mainFrame.inputWindow("you won: enter name");
-                mainFrame.errMessage(scoreboard.showScoreboard());
+                scoreboard.addPlayer(new Player(name, shotCounter));
+                showScoreboard();
             }
         }else if(result == TypesOfShots.Miss){
             mainFrame.miss(collum, row);
@@ -41,5 +42,29 @@ public class Controller {
             mainFrame.errMessage("what did you do?\nSend in a bug report with what you did pls.");
             shotCounter--;
         }
+    }
+
+    public void newGameBoard(){
+        shotCounter = 0;
+        mainFrame.reload();
+        String choiceString = mainFrame.inputWindow("what gameBoard do you want?");
+        int choice;
+        if (choiceString == null){
+            System.exit(0);
+        }
+        while (true){
+            try{
+                choice = Integer.parseInt(choiceString);
+                break;
+            }
+            catch (NumberFormatException e){
+                choiceString = mainFrame.inputWindow("what gameBoard do you want?");
+            }
+        }
+        gameboard = new GameBoard(size, choice);
+    }
+
+    public void showScoreboard(){
+        mainFrame.errMessage(scoreboard.showScoreboard());
     }
 }

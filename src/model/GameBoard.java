@@ -20,11 +20,10 @@ public class GameBoard {
         {
             gameBoardV1();
         }
-        else if (choice == 2)
+        else
         {
             gameBoardV2();
         }
-
     }
 
     private void gameBoardV1() {

@@ -12,11 +12,15 @@ import javax.swing.*;
 public class MainFrame {
     private JFrame frame;
     private MainPanel panel;
+    Controller controller;
+    int size;
 
     private int width = 800;
     private int height = 500;
 
     public MainFrame(Controller controller, int size) {
+        this.controller = controller;
+        this.size = size;
         frame = new JFrame("Battleship!!!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -44,5 +48,9 @@ public class MainFrame {
 
     public String inputWindow(String msg){
         return (String)JOptionPane.showInputDialog(frame, msg);
+    }
+
+    public void reload() {
+        panel.reload();
     }
 }
