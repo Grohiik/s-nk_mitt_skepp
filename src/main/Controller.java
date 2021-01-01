@@ -9,6 +9,9 @@ package main;
 import model.*;
 import view.MainFrame;
 
+/**
+ * Controller used to call for gui functions, checks some actions that occurs when a user is playing the game
+ */
 public class Controller {
     MainFrame mainFrame;
     GameBoard gameboard;
@@ -16,34 +19,46 @@ public class Controller {
     int shotCounter;
     int size = 10;
 
-    public Controller(){
+    public Controller() {
         mainFrame = new MainFrame(this, size);
         scoreboard = new Scoreboard(100);
         newGameBoard();
     }
 
-    public void shoot(int collum, int row){
+    /**
+     * Confirms whether something was hit or not and what action should be executed
+     * @param row Y coordinate
+     * @param column X coordinate
+     */
+    public void shoot(int row, int column) {
         shotCounter++;
-        TypesOfShots result = gameboard.shot(collum, row);
+        TypesOfShots result = gameboard.shot(row, column);
+
         if(result == TypesOfShots.Hit){
-            mainFrame.hit(collum, row);
-        }else if(result == TypesOfShots.Dead){
-            mainFrame.hit(collum, row);
-            Ship ship = gameboard.getBoard()[collum][row];
-            mainFrame.errMessage("A "+ship.toString()+" has been destroyed");
+            mainFrame.hit(row, column);
+        }
+        else if(result == TypesOfShots.Dead){
+            mainFrame.hit(row, column);
+            Ship ship = gameboard.getBoard()[row][column];
+            mainFrame.errMessage("A "+ship.toString()+" has been destroyed", "Destroyed a ship");
             if(gameboard.hasWon()){
-                String name = mainFrame.inputWindow("You won, enter your name name");
+                String name = mainFrame.inputWindow("You won, please enter your name");
                 scoreboard.addPlayer(new Player(name, shotCounter));
                 showScoreboard();
             }
-        }else if(result == TypesOfShots.Miss){
-            mainFrame.miss(collum, row);
-        }else if(result == TypesOfShots.Error){
-            mainFrame.errMessage("What did you do?\nSend in a bug report with what you did pls.");
+        }
+        else if(result == TypesOfShots.Miss){
+            mainFrame.miss(row, column);
+        }
+        else if(result == TypesOfShots.Error){
+            mainFrame.errMessage("What did you do?\nSend in a bug report with what you did pls.", "Error");
             shotCounter--;
         }
     }
 
+    /**
+     *  Creates a new gameboard
+     */
     public void newGameBoard(){
         shotCounter = 0;
         mainFrame.reload();
@@ -64,7 +79,10 @@ public class Controller {
         gameboard = new GameBoard(size, choice);
     }
 
+    /**
+     * Shows the scoreboard
+     */
     public void showScoreboard(){
-        mainFrame.errMessage(scoreboard.showScoreboard());
+        mainFrame.errMessage(scoreboard.showScoreboard(), "Scoreboard");
     }
 }

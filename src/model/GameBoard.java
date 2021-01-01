@@ -6,9 +6,7 @@
 
 package model;
 
-//TODO constructor to choose which of the 2 boards to use
-
-//Creates the board the game is played on,will create an array the ships are placed on, the remaining spots in the array are seen as null (empty spaces)
+// Creates the board the game is played on, will create an array the ships are placed on, the remaining spots in the array are seen as null (empty spaces)
 public class GameBoard {
     Ship[][] board;
 
@@ -25,6 +23,9 @@ public class GameBoard {
         }
     }
 
+    /**
+     * Version 1 of the gameboard
+     */
     private void gameBoardV1() {
         Submarine placedSubmarine = new Submarine();
         Carrier placedCarrier = new Carrier();
@@ -57,7 +58,10 @@ public class GameBoard {
         board[6][5] = placedCarrier;
         board[6][6] = placedCarrier;
     }
-  
+
+    /**
+     * Version 2 of the gameboard
+     */
     private void gameBoardV2() {
         Submarine placedSubmarine = new Submarine();
         Carrier placedCarrier = new Carrier();
@@ -91,11 +95,17 @@ public class GameBoard {
         board[2][5] = placedCarrier;
     }
 
-    public TypesOfShots shot(int collum, int row) {
-        if(collum > board.length || row > board[0].length || collum<0||row<0){
+    /**
+     * Checks what type of shot was made, did it hit, miss or kill
+     * @param row Y coordinate
+     * @param column X coordinate
+     * @return the type of shot made
+     */
+    public TypesOfShots shot(int row, int column) {
+        if(row > board.length || column > board[0].length || row<0||column<0){
             return TypesOfShots.Error;
         }
-        Ship ship = board[collum][row];
+        Ship ship = board[row][column];
         if(ship != null){
             ship.incHits();
             if(ship.isDead()){
@@ -106,6 +116,10 @@ public class GameBoard {
         return TypesOfShots.Miss;
     }
 
+    /**
+     * Checks if all enemies has been destroyed
+     * @return won or not
+     */
     public boolean hasWon() {
         for (Ship[] ships: board){
             for (Ship ship: ships){

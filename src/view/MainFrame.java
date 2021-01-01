@@ -34,8 +34,8 @@ public class MainFrame {
         frame.setVisible(true);
     }
 
-    public void errMessage(String message) {
-        JOptionPane.showMessageDialog(null, message);
+    public void errMessage(String message, String title) {
+        JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
 
     public void hit(int collum, int row) {

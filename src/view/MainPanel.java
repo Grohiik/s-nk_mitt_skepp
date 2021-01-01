@@ -52,7 +52,6 @@ public class MainPanel extends JPanel {
     public void miss(int collum, int row) {
         pnlCenter.miss(collum, row);
         pnlNorth.increaseShotCounter();
-
     }
 
     public void reload() {

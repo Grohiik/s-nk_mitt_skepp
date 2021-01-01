@@ -8,9 +8,13 @@ public class Scoreboard {
         players = new Player[size];
         addPlayer(new Player("Linnea", 50));
         addPlayer(new Player("Marcus", 40));
-
     }
 
+    /**
+     * Creates the actual user for the current game
+     * @param player the actual user
+     * @return the players name if created to the list
+     */
     public boolean addPlayer(Player player){
         for (int i = 0; i < players.length; i++) {
             if(players[i] == null){
@@ -23,6 +27,10 @@ public class Scoreboard {
         return false;
     }
 
+    /**
+     * Shows the current players mentioned whom has placed in the scoreboard
+     * @return the players names and scores as a string
+     */
     public String showScoreboard(){
         String out = "";
         for (int i = 0; i < players.length; i++){
@@ -34,6 +42,9 @@ public class Scoreboard {
         return out;
     }
 
+    /**
+     * Sorts the scoreboard with lowest points first (lowest shots to complete the game)
+     */
     private void sortScoreBoard(){
         int n = numberInBoard;
         Player temp;

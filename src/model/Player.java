@@ -1,5 +1,8 @@
 package model;
 
+/**
+ * Player class containing the name and score for each player who has played the game
+ */
 public class Player {
     private String name;
     private int score;

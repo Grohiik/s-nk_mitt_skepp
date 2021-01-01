@@ -16,7 +16,7 @@ public class PanelNorth  extends JPanel implements ActionListener {
     private Controller controller;
     private JButton btnNewGame;
     private JButton btnScoreBoard;
-    private JLabel counterLable;
+    private JLabel counterLabel;
     private JLabel counter;
 
     public PanelNorth(Controller controller) {
@@ -36,8 +36,8 @@ public class PanelNorth  extends JPanel implements ActionListener {
         counter = new JLabel("Shots fired:");
         add(counter);
 
-        counterLable = new JLabel("0");
-        add(counterLable);
+        counterLabel = new JLabel("0");
+        add(counterLabel);
 
     }
 
@@ -45,16 +45,17 @@ public class PanelNorth  extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals(Buttons.New_game.getName())){
             controller.newGameBoard();
-        } else if (e.getActionCommand().equals(Buttons.ScoreBoard.getName()));{
+        }
+        else if (e.getActionCommand().equals(Buttons.ScoreBoard.getName()));{
             controller.showScoreboard();
         }
     }
 
     public void increaseShotCounter() {
-        counterLable.setText(String.valueOf(Integer.parseInt(counterLable.getText())+1));
+        counterLabel.setText(String.valueOf(Integer.parseInt(counterLabel.getText())+1));
     }
 
     public void reset() {
-        counterLable.setText("0");
+        counterLabel.setText("0");
     }
 }
