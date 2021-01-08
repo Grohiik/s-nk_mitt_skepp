@@ -35,8 +35,8 @@ public abstract class Ship {
         hits++;
     }
 
-    public boolean isDead(){
-        if(length-hits<= 0){
+    public boolean isDead() {
+        if (length-hits <= 0) {
             return true;
         }
         return false;

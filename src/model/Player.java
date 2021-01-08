@@ -1,3 +1,9 @@
+/*
+  Author: Marcus Linné, Linnéa Mörk
+  Id: ai8851, al2804
+  Study program: DT
+*/
+
 package model;
 
 /**
@@ -7,14 +13,14 @@ public class Player {
     private String name;
     private int score;
 
-    public Player(String name, int score){
+    public Player(String name, int score) {
         this.name = name;
         this.score = score;
     }
 
     @Override
     public String toString() {
-        return name+ ": "+score;
+        return name + ": " + score;
     }
 
     public int getScore() {

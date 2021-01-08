@@ -24,7 +24,7 @@ public class GameBoard {
     }
 
     /**
-     * Version 1 of the gameboard
+     * Version 1 of the game board, ship placement in a 10 times 10 grid
      */
     private void gameBoardV1() {
         Submarine placedSubmarine = new Submarine();
@@ -33,7 +33,7 @@ public class GameBoard {
         Destroyer placedDestroyer = new Destroyer();
         Torpedo placedTorpedo = new Torpedo();
 
-        //Battleship placement in a 10 times 10 grid
+        //Battleship placement
         board[3][0] = placedBattleship;
         board[4][0] = placedBattleship;
         board[5][0] = placedBattleship;
@@ -60,7 +60,7 @@ public class GameBoard {
     }
 
     /**
-     * Version 2 of the gameboard
+     * Version 2 of the game board, ship placement in a 10 times 10 grid
      */
     private void gameBoardV2() {
         Submarine placedSubmarine = new Submarine();
@@ -69,7 +69,7 @@ public class GameBoard {
         Destroyer placedDestroyer = new Destroyer();
         Torpedo placedTorpedo = new Torpedo();
 
-        //Battleship placement in a 10 times 10 grid
+        //Battleship placement
         board[0][2] = placedBattleship;
         board[0][3] = placedBattleship;
         board[0][4] = placedBattleship;
@@ -102,13 +102,13 @@ public class GameBoard {
      * @return the type of shot made
      */
     public TypesOfShots shot(int row, int column) {
-        if(row > board.length || column > board[0].length || row<0||column<0){
+        if (row > board.length || column > board[0].length || row<0||column<0) {
             return TypesOfShots.Error;
         }
         Ship ship = board[row][column];
-        if(ship != null){
+        if (ship != null) {
             ship.incHits();
-            if(ship.isDead()){
+            if (ship.isDead()) {
                 return TypesOfShots.Dead;
             }
             return TypesOfShots.Hit;
@@ -121,12 +121,12 @@ public class GameBoard {
      * @return won or not
      */
     public boolean hasWon() {
-        for (Ship[] ships: board){
-            for (Ship ship: ships){
-                if(ship == null){
+        for (Ship[] ships: board) {
+            for (Ship ship: ships) {
+                if (ship == null) {
                     continue;
                 }
-                if(!ship.isDead()){
+                if (!ship.isDead()) {
                     return false;
                 }
             }

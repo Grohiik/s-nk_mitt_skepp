@@ -6,7 +6,7 @@
 
 package view;
 
-import main.Controller;
+import controller.Controller;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -27,7 +27,7 @@ public class MainPanel extends JPanel {
         setupPanel();
     }
 
-    private void setupPanel(){
+    private void setupPanel() {
         BorderLayout layout = new BorderLayout();
         setLayout(layout);
         Border border = this.getBorder();

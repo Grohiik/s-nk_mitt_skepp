@@ -6,7 +6,7 @@
 
 package view;
 
-import main.Controller;
+import controller.Controller;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -24,7 +24,7 @@ public class PanelNorth  extends JPanel implements ActionListener {
         createComponents();
     }
 
-    private void createComponents(){
+    private void createComponents() {
         btnNewGame = new JButton(Buttons.New_game.getName());
         add(btnNewGame);
         btnNewGame.addActionListener(this);
@@ -43,10 +43,10 @@ public class PanelNorth  extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals(Buttons.New_game.getName())){
+        if(e.getActionCommand().equals(Buttons.New_game.getName())) {
             controller.newGameBoard();
         }
-        else if (e.getActionCommand().equals(Buttons.ScoreBoard.getName()));{
+        else if (e.getActionCommand().equals(Buttons.ScoreBoard.getName())); {
             controller.showScoreboard();
         }
     }

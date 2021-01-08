@@ -5,7 +5,7 @@
 */
 
 package view;
-import main.Controller;
+import controller.Controller;
 
 import javax.swing.*;
 
@@ -21,6 +21,7 @@ public class MainFrame {
     public MainFrame(Controller controller, int size) {
         this.controller = controller;
         this.size = size;
+
         frame = new JFrame("Battleship!!!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -47,7 +48,7 @@ public class MainFrame {
     }
 
     public String inputWindow(String msg){
-        return (String)JOptionPane.showInputDialog(frame, msg);
+        return JOptionPane.showInputDialog(frame, msg);
     }
 
     public void reload() {

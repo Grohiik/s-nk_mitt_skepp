@@ -4,7 +4,7 @@
   Study program: DT
 */
 
-package main;
+package controller;
 
 import model.*;
 import view.MainFrame;
@@ -19,6 +19,10 @@ public class Controller {
     int shotCounter;
     int size = 10;
 
+
+    /**
+     * Constructor for the controller initiating the GUI and scoreboard
+     */
     public Controller() {
         mainFrame = new MainFrame(this, size);
         scoreboard = new Scoreboard(100);
@@ -34,23 +38,23 @@ public class Controller {
         shotCounter++;
         TypesOfShots result = gameboard.shot(row, column);
 
-        if(result == TypesOfShots.Hit){
+        if (result == TypesOfShots.Hit) {
             mainFrame.hit(row, column);
         }
-        else if(result == TypesOfShots.Dead){
+        else if (result == TypesOfShots.Dead) {
             mainFrame.hit(row, column);
             Ship ship = gameboard.getBoard()[row][column];
-            mainFrame.errMessage("A "+ship.toString()+" has been destroyed", "Destroyed a ship");
-            if(gameboard.hasWon()){
+            mainFrame.errMessage("A " + ship.toString() + " has been destroyed", "Destroyed a ship");
+            if (gameboard.hasWon()) {
                 String name = mainFrame.inputWindow("You won, please enter your name");
                 scoreboard.addPlayer(new Player(name, shotCounter));
                 showScoreboard();
             }
         }
-        else if(result == TypesOfShots.Miss){
+        else if (result == TypesOfShots.Miss) {
             mainFrame.miss(row, column);
         }
-        else if(result == TypesOfShots.Error){
+        else if (result == TypesOfShots.Error) {
             mainFrame.errMessage("What did you do?\nSend in a bug report with what you did pls.", "Error");
             shotCounter--;
         }
@@ -59,20 +63,21 @@ public class Controller {
     /**
      *  Creates a new gameboard
      */
-    public void newGameBoard(){
+    public void newGameBoard() {
         shotCounter = 0;
         mainFrame.reload();
         String choiceString = mainFrame.inputWindow("Which board would you like to use?");
         int choice;
-        if (choiceString == null){
+
+        if (choiceString == null) {
             System.exit(0);
         }
-        while (true){
-            try{
+        while (true) {
+            try {
                 choice = Integer.parseInt(choiceString);
                 break;
             }
-            catch (NumberFormatException e){
+            catch (NumberFormatException e) {
                 choiceString = mainFrame.inputWindow("Which board would you like to use?");
             }
         }
@@ -82,7 +87,7 @@ public class Controller {
     /**
      * Shows the scoreboard
      */
-    public void showScoreboard(){
+    public void showScoreboard() {
         mainFrame.errMessage(scoreboard.showScoreboard(), "Scoreboard");
     }
 }
