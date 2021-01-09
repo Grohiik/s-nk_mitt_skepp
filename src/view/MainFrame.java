@@ -21,7 +21,14 @@ public class MainFrame {
     public MainFrame(Controller controller, int size) {
         this.controller = controller;
         this.size = size;
-
+        try
+        {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        }
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e)
+        {
+            e.printStackTrace();
+        }
         frame = new JFrame("Battleship!!!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
