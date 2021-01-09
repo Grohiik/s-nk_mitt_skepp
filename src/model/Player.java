@@ -18,12 +18,12 @@ public class Player {
         this.score = score;
     }
 
+    public int getScore() {
+        return score;
+    }
+
     @Override
     public String toString() {
         return name + ": " + score;
-    }
-
-    public int getScore() {
-        return score;
     }
 }
