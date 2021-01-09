@@ -39,12 +39,12 @@ public class MainFrame {
         JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public void hit(int collum, int row) {
-        panel.hit(collum, row);
+    public void hit(int column, int row) {
+        panel.hit(column, row);
     }
 
-    public void miss(int collum, int row) {
-        panel.miss(collum, row);
+    public void miss(int column, int row) {
+        panel.miss(column, row);
     }
 
     public String inputWindow(String msg){
