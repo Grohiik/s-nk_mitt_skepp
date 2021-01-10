@@ -21,6 +21,7 @@ public class MainFrame {
     public MainFrame(Controller controller, int size) {
         this.controller = controller;
         this.size = size;
+
         try
         {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -29,6 +30,7 @@ public class MainFrame {
         {
             e.printStackTrace();
         }
+
         frame = new JFrame("Battleship!!!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
