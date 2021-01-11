@@ -6,7 +6,7 @@
 
 package model;
 
-public class Submarine extends Ship{
+public class Submarine extends Ship {
     public Submarine() {
         super(ShipType.submarine, 1);
     }

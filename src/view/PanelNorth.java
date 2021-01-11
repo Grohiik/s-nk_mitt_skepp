@@ -6,7 +6,7 @@
 
 package view;
 
-import main.Controller;
+import controller.Controller;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -16,7 +16,7 @@ public class PanelNorth  extends JPanel implements ActionListener {
     private Controller controller;
     private JButton btnNewGame;
     private JButton btnScoreBoard;
-    private JLabel counterLable;
+    private JLabel counterLabel;
     private JLabel counter;
 
     public PanelNorth(Controller controller) {
@@ -24,7 +24,7 @@ public class PanelNorth  extends JPanel implements ActionListener {
         createComponents();
     }
 
-    private void createComponents(){
+    private void createComponents() {
         btnNewGame = new JButton(Buttons.New_game.getName());
         add(btnNewGame);
         btnNewGame.addActionListener(this);
@@ -36,25 +36,26 @@ public class PanelNorth  extends JPanel implements ActionListener {
         counter = new JLabel("Shots fired:");
         add(counter);
 
-        counterLable = new JLabel("0");
-        add(counterLable);
+        counterLabel = new JLabel("0");
+        add(counterLabel);
 
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals(Buttons.New_game.getName())){
+        if(e.getActionCommand().equals(Buttons.New_game.getName())) {
             controller.newGameBoard();
-        } else if (e.getActionCommand().equals(Buttons.ScoreBoard.getName()));{
+        }
+        else if (e.getActionCommand().equals(Buttons.ScoreBoard.getName())); {
             controller.showScoreboard();
         }
     }
 
     public void increaseShotCounter() {
-        counterLable.setText(String.valueOf(Integer.parseInt(counterLable.getText())+1));
+        counterLabel.setText(String.valueOf(Integer.parseInt(counterLabel.getText())+1));
     }
 
     public void reset() {
-        counterLable.setText("0");
+        counterLabel.setText("0");
     }
 }

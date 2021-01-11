@@ -6,7 +6,7 @@
 
 package view;
 
-import main.Controller;
+import controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
@@ -28,8 +28,8 @@ public class PanelCenter  extends JPanel implements ActionListener {
     private void createComponents(){
         GridLayout layout = new GridLayout(size, size);
         setLayout(layout);
-        for(int i = 0; i<size; i++){
-            for(int j = 0; j<size; j++){
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
                 buttons[i][j] = new JButton(" ");
                 add(buttons[i][j]);
                 buttons[i][j].addActionListener(this);
@@ -40,9 +40,9 @@ public class PanelCenter  extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JButton button = (JButton) e.getSource();
-        for(int i = 0; i<size; i++){
-            for(int j = 0; j<size; j++){
-                if (buttons[i][j].equals(button)){
+        for (int i = 0; i < size; i++){
+            for (int j = 0; j < size; j++) {
+                if (buttons[i][j].equals(button)) {
                     controller.shoot(i, j);
                     break;
                 }
@@ -63,8 +63,8 @@ public class PanelCenter  extends JPanel implements ActionListener {
     }
 
     public void reset() {
-        for(JButton[] buttons1d: buttons){
-            for(JButton button: buttons1d){
+        for (JButton[] buttons1d: buttons) {
+            for (JButton button: buttons1d) {
                 button.setEnabled(true);
                 button.setText(" ");
             }

@@ -5,7 +5,7 @@
 */
 
 package view;
-import main.Controller;
+import controller.Controller;
 
 import javax.swing.*;
 
@@ -21,6 +21,16 @@ public class MainFrame {
     public MainFrame(Controller controller, int size) {
         this.controller = controller;
         this.size = size;
+
+        try
+        {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        }
+        catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e)
+        {
+            e.printStackTrace();
+        }
+
         frame = new JFrame("Battleship!!!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -34,20 +44,20 @@ public class MainFrame {
         frame.setVisible(true);
     }
 
-    public void errMessage(String message) {
-        JOptionPane.showMessageDialog(null, message);
+    public void errMessage(String message, String title) {
+        JOptionPane.showMessageDialog(null, message, title, JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public void hit(int collum, int row) {
-        panel.hit(collum, row);
+    public void hit(int column, int row) {
+        panel.hit(column, row);
     }
 
-    public void miss(int collum, int row) {
-        panel.miss(collum, row);
+    public void miss(int column, int row) {
+        panel.miss(column, row);
     }
 
     public String inputWindow(String msg){
-        return (String)JOptionPane.showInputDialog(frame, msg);
+        return JOptionPane.showInputDialog(frame, msg);
     }
 
     public void reload() {
