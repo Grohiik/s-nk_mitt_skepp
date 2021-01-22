@@ -34,12 +34,12 @@ public class Scoreboard {
     }
 
     /**
-     * Shows the current players mentioned whom has placed in the scoreboard
+     * Shows the current players mentioned whom has placed in the scoreboard (top 10)
      * @return the players names and scores as a string
      */
     public String showScoreboard(){
         String out = "";
-        for (int i = 0; i < players.length; i++) {
+        for (int i = 0; i < 10; i++) {
             if (players[i] == null) {
                 break;
             }
@@ -54,7 +54,7 @@ public class Scoreboard {
     private void sortScoreBoard() {
         int n = numberInBoard;
         Player temp;
-        for (int i = 0; i < n && i < 10; i++) {
+        for (int i = 0; i < n && i < players.length; i++) {
             for (int j = 1; j < (n-i); j++) {
                 if (players[j-1].getScore() > players[j].getScore()) {
                     temp = players[j-1];
